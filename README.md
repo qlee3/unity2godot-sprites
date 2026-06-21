@@ -1,5 +1,7 @@
 # unity2godot-sprites
 
+**English** | [한국어](README.ko.md)
+
 `unity2godot-sprites` is a Godot 4 editor plugin that converts Unity 2D sprite
 sheets, Sprite Library assets, and AnimationClips into Godot `SpriteFrames`.
 It scans an external Unity asset folder, copies source textures into the Godot
@@ -15,7 +17,25 @@ project, and can optionally create ready-to-use `AnimatedSprite2D` scenes.
 
 ## Installation
 
-1. Copy `addons/unity2godot_sprites` into the `addons` folder of a Godot project.
+Clone the latest stable version:
+
+```bash
+git clone --branch v0.1.1 --depth 1 \
+  https://github.com/qlee3/unity2godot-sprites.git
+```
+
+Then copy `unity2godot-sprites/addons/unity2godot_sprites` into the `addons`
+folder of your Godot project. For example, on macOS or Linux:
+
+```bash
+mkdir -p /path/to/your-godot-project/addons
+cp -R unity2godot-sprites/addons/unity2godot_sprites \
+  /path/to/your-godot-project/addons/
+```
+
+After copying the plugin:
+
+1. Open the Godot project.
 2. Open **Project > Project Settings > Plugins**.
 3. Enable **unity2godot-sprites**.
 4. Open the **Unity Sprites** panel at the bottom of the editor.
