@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - version: "4.3"
+            release: "4.3-stable"
+          - version: "4.6"
+            release: "4.6.3-stable"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Godot
+        run: |
+          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          unzip -q "Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          mv "Godot_v${GODOT_RELEASE}_linux.x86_64" godot
+          chmod +x godot
+        env:
+          GODOT_RELEASE: ${{ matrix.release }}
+      - name: Import project
+        run: ./godot --headless --editor --path . --quit
+      - name: Run tests
+        run: ./godot --headless --path . --script res://tests/test_runner.gd

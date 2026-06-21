@@ -1,0 +1,12 @@
+; Engine configuration file.
+
+config_version=5
+
+[application]
+
+config/name="unity2godot-sprites"
+config/features=PackedStringArray("4.3")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
